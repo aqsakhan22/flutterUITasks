@@ -1,0 +1,3 @@
+1. flutter_native_splash STEPS first install this plugin and create a file
+flutter_native_splash.yaml configure logo and color of splash screen you want
+ dart run flutter_native_splash:create flutter_native_splash.yaml
