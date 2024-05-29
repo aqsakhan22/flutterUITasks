@@ -39,6 +39,8 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_svg: ^2.0.10+1
   syncfusion_flutter_datepicker: ^19.1.69-beta
+  curved_navigation_bar: ^1.0.3
+  salomon_bottom_bar: ^3.3.2
 #  flutter_native_splash: ^2.3.7
 
 dev_dependencies:
