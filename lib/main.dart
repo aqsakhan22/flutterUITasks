@@ -49,8 +49,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 // airnb
 // Route<dynamic> _onGenerateRoute(RouteSettings settings) {
 //   switch (settings.name) {
@@ -120,7 +118,6 @@ class MyApp extends StatelessWidget {
 //       });
 //   }
 // }
-
 
 Route<dynamic> _onGenerateRoute3(RouteSettings settings) {
   switch (settings.name) {
