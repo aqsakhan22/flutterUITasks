@@ -39,6 +39,12 @@ dependencies:
   cached_network_image: ^3.4.0
   circular_carousel_slider: ^0.0.2
   flutter_animate_on_scroll: ^0.1.1
+  qr_flutter: ^4.1.0
+  qr_mobile_vision: ^5.0.1
+  screenshot: ^3.0.0
+  share_plus: ^10.0.2
+  path_provider: ^2.1.4
+  http: ^1.2.2
 
 
 dev_dependencies:

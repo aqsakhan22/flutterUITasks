@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutteruitask/QR_examples/GenerateQRCode.dart';
+import 'package:flutteruitask/QR_examples/Qr_main.dart';
+import 'package:flutteruitask/QR_examples/qr_example1.dart';
+import 'package:flutteruitask/QR_examples/qr_example2.dart';
 import 'package:flutteruitask/carousel/example.dart';
 import 'package:flutteruitask/listview_example/listView_example.dart';
 import 'package:flutteruitask/parallex_examples/paralex_Ex.dart';
@@ -27,8 +31,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:
-      ListviewExample()
+      home:QRCodePlayground()
+      //QRMain()
+      //GenerateQRCode()
+      //QRScreen()
+     // ListviewExample()
       //ParallaxRecipe()
       //TextExamples()
       //SlideExamples()
