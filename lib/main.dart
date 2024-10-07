@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutteruitask/carousel/example.dart';
+import 'package:flutteruitask/listview_example/listView_example.dart';
 import 'package:flutteruitask/parallex_examples/paralex_Ex.dart';
 import 'package:flutteruitask/persistant_shopping_Cart/persistent_shopping_cart.dart';
 import 'package:flutteruitask/scroll_animate/custom_animation_ex.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:
-      ParallaxRecipe()
+      ListviewExample()
+      //ParallaxRecipe()
       //TextExamples()
       //SlideExamples()
       //RotateExamples()
