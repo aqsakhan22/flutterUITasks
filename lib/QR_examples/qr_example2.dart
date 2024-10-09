@@ -2,12 +2,12 @@
 // import 'dart:io';
 // import 'dart:typed_data';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutteruitask/QR_examples/GenerateQRCode.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:http/http.dart' as http;
@@ -21,8 +21,9 @@ class QRCodePlayground extends StatefulWidget {
 class _QRCodePlaygroundState extends State<QRCodePlayground> {
   List listofQR=[];
   ScreenshotController screenshotController = ScreenshotController();
+  ScreenshotController screenshotController1 = ScreenshotController();
   final TextEditingController tfController = TextEditingController();
-
+  List QRImg=[];
 
   /*  void _shareFile(BuildContext context) async {
       print("share file is ${fileUrl.contains('pdf') ? filePathUrl : imagePathUrl }$fileUrl");
@@ -117,13 +118,15 @@ class _QRCodePlaygroundState extends State<QRCodePlayground> {
       AppSnackBar.showSnackBar(context, 'Permission denied');
     }
   }*/
- Future<void> _shareQrCode() async {
+
+
+ Future<void> _generateCode() async {
     final directory = (await getApplicationDocumentsDirectory()).path;
-    final box = context.findRenderObject() as RenderBox?;
     screenshotController.capture().then(( image) async {
       if (image != null) {
         try {
-          String fileName = DateTime.now().microsecondsSinceEpoch.toString();
+          String fileName = tfController.text+"${Random().nextInt(10).floor()}";
+          //DateTime.now().microsecondsSinceEpoch.toString();
           final imagePath = await File('$directory/$fileName.png').create();
           print("file name is ${imagePath}");
           if (imagePath != null) {
@@ -131,8 +134,48 @@ class _QRCodePlaygroundState extends State<QRCodePlayground> {
 // share simple path
 //             Share.share(imagePath.path);
             // Share with Image
+            //
+            // await Share.shareXFiles([XFile(imagePath.path)], text: 'Check out this image!');
+            // print("");
+            QRImg.add({'name':fileName,"QRImage":XFile(imagePath.path)});
+            setState(() {
 
-            await Share.shareXFiles([XFile(imagePath.path)], text: 'Check out this image!');
+            });
+
+            // File file = File(imagePath.path);
+            // print("image path readASBytes is ${file.readAsBytesSync()}");
+            // file.writeAsBytesSync(file.readAsBytesSync());
+            // print("file read ${file}");
+            // List<XFile> files = [];
+            // files.add(XFile(imagePath.path));
+            // await Share.shareXFiles(
+            //   files,
+            //   subject: "BMA Capital Morning News",
+            //   sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+            // );
+          }
+        } catch (error) {}
+      }
+    }).catchError((onError) {
+      print('Error --->> $onError');
+    });
+  }
+ Future<void> _shareQrCode(String Title) async {
+    final directory = (await getApplicationDocumentsDirectory()).path;
+    // final box = context.findRenderObject() as RenderBox?;
+    screenshotController1.capture().then(( image) async {
+      if (image != null) {
+        try {
+          String fileName = tfController.text+"${Random().nextInt(10).floor()}";
+          //DateTime.now().microsecondsSinceEpoch.toString();
+          final imagePath = await File('$directory/$fileName.png').create();
+          if (imagePath != null) {
+            await imagePath.writeAsBytes(image);
+// share simple path
+//             Share.share(imagePath.path);
+            // Share with Image
+
+            await Share.shareXFiles([XFile(imagePath.path)], text: '${Title}');
 
             // File file = File(imagePath.path);
             // print("image path readASBytes is ${file.readAsBytesSync()}");
@@ -159,13 +202,14 @@ class _QRCodePlaygroundState extends State<QRCodePlayground> {
      Scaffold
        (
        appBar: AppBar(
-         title: Text("QRCodePlayground"),
+         backgroundColor: Colors.blue,
+         title: Text("QRCodePlayground",style: TextStyle(color: Colors.white),),
        ),
        body:  Padding(
        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-       child: ListView(
+       child: Column(
          children: [
-           Text("tfController is ${tfController.text}"),
+           // Text("QRImg ${QRImg.length}"),
            tfController.text.isEmpty
                ? SizedBox.shrink()
                : Screenshot(
@@ -173,7 +217,8 @@ class _QRCodePlaygroundState extends State<QRCodePlayground> {
                child: Container(
                    // width: 500,
                    // height: 100,
-                   child:      QrImageView(
+                   child:
+                   QrImageView(
                      data: tfController.text,
 
                      //"https://play.google.com/store/apps/details?id=com.bmadevelopers.research&hl=en",
@@ -205,37 +250,105 @@ class _QRCodePlaygroundState extends State<QRCodePlayground> {
            ),
            SizedBox(height: 20),
            tfController.text.isEmpty ?
-           ElevatedButton(onPressed: (){
-             setState(() {
+           ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.green
+               ),
+               onPressed: (){
 
-             });
 
              if (tfController.text.isEmpty) {
                ScaffoldMessenger.of(context).showSnackBar(
                    SnackBar(content: Text('Generate your QR code first')));
              } else {
-               _shareQrCode();
+               _generateCode();
              }
-           }, child: Text("Generate QR Code"))
+             setState(() {
+
+               print("qr image length is ${QRImg.length}");
+             });
+           }, child: Text("Generate QR Code",style: TextStyle(color: Colors.white),))
 
            :
            SizedBox()
            ,
 
-           ElevatedButton(onPressed: (){
+           ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.blue
+               ),
+               onPressed: (){
              if (tfController.text.isEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
                    SnackBar(content: Text('Generate your QR code first')));
              } else {
-               _shareQrCode();
+               _shareQrCode("Share QR CODE");
              }
-           }, child: Text("Share QR code")),
-           ElevatedButton(onPressed: (){
+           }, child: Text("Share QR code",style: TextStyle(color: Colors.white),)),
+           ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.red
+               ),
+               onPressed: (){
+
              tfController.text="";
+             QRImg=[];
 setState(() {
 
 });
-           }, child: Text("Clear"))
+           }, child: Text("Clear",style: TextStyle(color: Colors.white),)),
+             Expanded(
+
+                 child:
+                 ListView.builder(
+                 shrinkWrap: true,
+                 itemCount: QRImg.length,
+                 itemBuilder: (context,int index){
+                   return Container(
+                     // color: Colors.blue,
+                     padding: EdgeInsets.symmetric(vertical: 10.0),
+                     child:
+                     Row(
+                       children: [
+                         Text("${QRImg[index]['name']}",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w600),),
+
+                         IconButton(onPressed: (){
+                           _shareQrCode(QRImg[index]['name']);
+                         }, icon: Icon(Icons.share)),
+                     Spacer(),
+                     Screenshot(
+                       child:  QrImageView(
+                       data:QRImg[index]['name'].toString(),
+
+                       //"https://play.google.com/store/apps/details?id=com.bmadevelopers.research&hl=en",
+
+                       size: 90,
+                       errorCorrectionLevel: QrErrorCorrectLevel.H,
+                       gapless: false,
+                       foregroundColor: Colors.black,
+                       // backgroundColor: Colors.white,
+                       // You can include embeddedImageStyle Property if you
+                       //wanna embed an image from your Asset folder
+                       embeddedImageStyle: QrEmbeddedImageStyle(
+                         size: const Size(
+                           100,
+                           100,
+                         ),
+                       ),
+                       // embeddedImage: AssetImage("assets/img.png"),
+                     ),
+                       controller: screenshotController1,),
+                     // Image.file(
+                     //       height: 70,
+                     //       File(QRImg[index]['QRImage'].path)
+                     //   ),
+                       ],
+                     ),
+
+
+                   );
+                 })
+             )
 
          ],
        ),
