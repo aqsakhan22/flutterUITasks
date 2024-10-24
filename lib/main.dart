@@ -10,6 +10,7 @@ import 'package:flutteruitask/interview_questions_example/extension_example.dart
 import 'package:flutteruitask/listview_example/listView_example.dart';
 import 'package:flutteruitask/parallex_examples/paralex_Ex.dart';
 import 'package:flutteruitask/persistant_shopping_Cart/persistent_shopping_cart.dart';
+import 'package:flutteruitask/ring_tone.dart';
 import 'package:flutteruitask/scroll_animate/custom_animation_ex.dart';
 import 'package:flutteruitask/scroll_animate/fade_Example.dart';
 import 'package:flutteruitask/scroll_animate/rotate_example.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:
+      RingtoneExample()
       //ExtensionExample()
       //QRCodePlayground()
       //QRMain()
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
       //SlideExamples()
       //RotateExamples()
      // FadeExamples(),
-      ScrollAnimationFab()
+      //ScrollAnimationFab()
       //CustomAnimationExample()
       //Example()
       //ProductsScreen(),
