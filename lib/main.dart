@@ -5,6 +5,11 @@ import 'package:flutteruitask/QR_examples/GenerateQRCode.dart';
 import 'package:flutteruitask/QR_examples/Qr_main.dart';
 import 'package:flutteruitask/QR_examples/qr_example1.dart';
 import 'package:flutteruitask/QR_examples/qr_example2.dart';
+import 'package:flutteruitask/app_performance/keys_knowledge/global_key.dart';
+import 'package:flutteruitask/app_performance/keys_knowledge/object_key.dart';
+import 'package:flutteruitask/app_performance/keys_knowledge/page_store_key.dart';
+import 'package:flutteruitask/app_performance/keys_knowledge/unique_key.dart';
+import 'package:flutteruitask/app_performance/keys_knowledge/value_key.dart';
 import 'package:flutteruitask/carousel/example.dart';
 import 'package:flutteruitask/interview_questions_example/extension_example.dart';
 import 'package:flutteruitask/listview_example/listView_example.dart';
@@ -45,7 +50,14 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:
-      RingtoneExample()
+      ValueKeyExample()
+      //TaskApp()
+      // ColourPositionedTiles()
+     // PageStoreKey()
+      //ObjectKeyEx()
+     // GlobalExampleKey()
+      //ValueKeyExample()
+     // RingtoneExample()
       //ExtensionExample()
       //QRCodePlayground()
       //QRMain()
