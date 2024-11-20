@@ -89,6 +89,17 @@ int max=numbers[0];
       // return isFound;
       return secondMax;
     }
+    int fibonacci(int n) {
+      print("fibonacci is ${n}");
+      if (n <= 1) {
+        return n;
+      } else {
+        // print("fibonacci is ${fibonacci(n - 1) + fibonacci(n - 2)}");
+        // 10-1 + 10-2 -> 9 + 8
+        // 10-1 + 10-2 -> 9 + 8
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text("Array Practice"),
@@ -106,7 +117,11 @@ int max=numbers[0];
           ElevatedButton(onPressed: (){
             print("Greatest no is ${SecondLargestNumbers()}");
 
-          }, child: Text("2nd Greatest Element")),
+          }, child: Text("2nd Greatest Element")), 
+          ElevatedButton(onPressed: (){
+            print("fibonanci series is ${fibonacci(10)}");
+
+          }, child: Text("fibonancii series")),
 
         ],
       ),
