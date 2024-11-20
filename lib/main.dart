@@ -11,6 +11,8 @@ import 'package:flutteruitask/app_performance/keys_knowledge/page_store_key.dart
 import 'package:flutteruitask/app_performance/keys_knowledge/unique_key.dart';
 import 'package:flutteruitask/app_performance/keys_knowledge/value_key.dart';
 import 'package:flutteruitask/carousel/example.dart';
+import 'package:flutteruitask/dart_practice/factory_example.dart';
+import 'package:flutteruitask/data_structure/array.dart';
 import 'package:flutteruitask/interview_questions_example/extension_example.dart';
 import 'package:flutteruitask/listview_example/listView_example.dart';
 import 'package:flutteruitask/parallex_examples/paralex_Ex.dart';
@@ -28,6 +30,10 @@ import 'dart:io';
 Future<void> main() async{
  // await PersistentShoppingCart().init();
  //  final jsonData = await Isolate.run(_readAndParseJson);
+ //  Shape shape = Shape(ShapeType.circle);
+ //  Shape shape2 = Shape(ShapeType.rectangle);
+ //  shape.draw();
+ //  shape2.draw();
   runApp(const MyApp());
 }
 
@@ -51,7 +57,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:
-      ValueKeyExample()
+      ArraySample()
+      //ValueKeyExample()
       //TaskApp()
       // ColourPositionedTiles()
      // PageStoreKey()

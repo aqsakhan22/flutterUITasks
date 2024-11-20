@@ -1,0 +1,34 @@
+https://www3.cs.stonybrook.edu/~skiena/373/videos/
+Free Code Camp makes great videos, so make sure you check out their videos.
+
+Recently I started a YouTube channel, and I am trying to cover some DSA topics. Following are some of the videos I have made, which can be watched in the following order. Feel free to check them out. I am still new to making these videos, so any feedback is really welcome :)
+
+Learn about Trees: https://youtu.be/6RLFDjSJY1s
+
+Implementing Trees: https://youtu.be/-PrDf9myh30
+
+Level Order and BFS on trees: https://youtu.be/4-nUPei28PM
+
+DFS and various Traversals: https://youtu.be/3kcUcKalFMg
+
+And I plan to create more and more DSA videos until I cover all the topics
+
+Focus on one topic at a time, and get hands on with it. You should cover the following topics in order (Feel free to change the order based on your preferences). Make sure you dont get too deep into the topic though. Like dont start solving Dynamic Programming problems on arrays. Rather learn the basics, solve some simple problems, and move on to the next topic. Thats how you will be ready to tackle harder problems. Once you reach Graphs, then start again with Arrays, and then tackle harder topics. After 1 iteration you will know enough to pave your own path :)
+
+String
+
+Arrays
+
+Queues
+
+Stacks
+
+Linked List
+
+Trees
+
+Graphs
+
+I recommend watching YouTube videos that teach you data structures and Algorithms. Caleb Curry’s “Data Structures and Algorithms” playlist is a good start. Once you have a solid understanding of these fundamentals, then start looking at leetcode
+
+https://www.geeksforgeeks.org/how-to-start-learning-dsa/
