@@ -8,14 +8,13 @@ class Header extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
         children: [
           Expanded(
-
               child: Container(
                   color: Colors.grey[100],
                   child: Icon(Icons.warning))),
-         Expanded(child:  Container(
+             Expanded(
+             child:  Container(
              padding: EdgeInsets.symmetric(vertical: 50.0),
              child: Text("Lorem ipsum Text will be Here", textAlign: TextAlign.right,))),
         ],
@@ -23,3 +22,4 @@ class Header extends StatelessWidget {
     );
   }
 }
+
