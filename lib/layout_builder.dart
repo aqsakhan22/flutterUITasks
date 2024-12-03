@@ -49,7 +49,6 @@ class _LayOuTBuilderState extends State<LayOuTBuilder> {
                   ),
                 ),
                 Expanded(
-
                   child: Container(
                     height: 50,
                     color: Colors.pink,

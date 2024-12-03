@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:responsivedesignflutter/website_design/website_design_Example.dart';
 import 'package:responsivedesignflutter/grid_view_ex.dart';
 import 'package:responsivedesignflutter/screens/mainPage.dart';
 
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
 
         ),
-        home: MainPage()
+        home: AspectRatioEx()
+        //MainPage()
         //GridviewEx()
 
       // Responsive(
